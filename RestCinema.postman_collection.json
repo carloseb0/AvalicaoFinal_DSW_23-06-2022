@@ -1,0 +1,531 @@
+{
+	"info": {
+		"_postman_id": "688f23b9-2d89-4d86-8061-559d59ffe605",
+		"name": "RestCinema",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19759013"
+	},
+	"item": [
+		{
+			"name": "Filme",
+			"item": [
+				{
+					"name": "listall",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/filme/listAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"filme",
+								"listAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addValidate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\":\"TESTE\",\r\n    \"descricao\":\"teste final\",\r\n    \"nrFaixaetaria\": 20,\r\n    \"daEstreia\": \"2022-06-30T00:00:32-03:00\",\r\n    \"idProdutora\": {\"idProdutora\": 4 }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/filme/addValidate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"filme",
+								"addValidate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "id",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/filme/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"filme",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "id",
+								"value": "2",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n        \"daEstreia\": \"2020-11-11T00:00:00-02:00\",\r\n        \"descricao\": \"teste edit\",\r\n        \"idFilme\": 1,\r\n        \"idProdutora\": {\"idProdutora\": 1 },\r\n        \"nrFaixaetaria\": 14,\r\n        \"titulo\": \"teste edit\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/filme/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"filme",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByPartTitulo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/filme/findByPartTitulo/tes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"filme",
+								"findByPartTitulo",
+								"tes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produtora",
+			"item": [
+				{
+					"name": "listall",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/produtora/listAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"produtora",
+								"listAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addValidate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Teste\",\r\n    \"nomefundador\": \"admin\",\r\n    \"daFundacao\": \"2022-06-30T00:00:21-03:12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/produtora/addValidate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"produtora",
+								"addValidate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "id",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/produtora/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"produtora",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "id",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{        \r\n    \"daFundacao\": \"2022-06-30T00:00:00-03:00\",\r\n    \"idProdutora\": 4,\r\n    \"nome\": \"NetflixX\",\r\n    \"nomefundador\": \"Reed Hastings, Marc Randolph\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/produtora/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"produtora",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByPartTitulo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/produtora/findByPartTitulo/es",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"produtora",
+								"findByPartTitulo",
+								"es"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "listall",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk5MzAsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk5MzB9.UoRvRMp1piOCRORPs62z0YBpr8tiLpJ9xfFfULY6Klo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/usuario/listAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"usuario",
+								"listAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addValidate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Luiz Somenzi\",\r\n    \"usuario\":\"soso\",\r\n    \"senha\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/usuario/addValidate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"usuario",
+								"addValidate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authorize",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "user",
+								"value": "sosomo",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "12345",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/usuario/authorize",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"usuario",
+								"authorize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUsuario\":5,\r\n    \"nome\":\"teste\",\r\n    \"usuario\":\"soso\",\r\n    \"senha\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/usuario/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"usuario",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "id",
+								"value": "5",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODMwMDAiLCJpc3MiOiJ1cGYiLCJpYXQiOjE2NTU3Njk3ODcsInBhc3N3b3JkIjoic2Rsa2pzZG9pam9ucHZmNjV2NGU2ZnY1ZTZ2ZXIiLCJleHAiOjE2NTgyODk3ODZ9.yowZOL5Rjz3jMZ7cWm6nfZa2REYke32PXyW0VAZkf80",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/RestCinemaFinal/webresources/usuario/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RestCinemaFinal",
+								"webresources",
+								"usuario",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

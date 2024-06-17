@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FilmeViewDlg" widgetVar="FilmeViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFilmeTitle}">
+            <h:form id="FilmeViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{filmeController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFilmeLabel_idFilme}"/>
+                        <h:outputText value="#{filmeController.selected.idFilme}" title="#{bundle.ViewFilmeTitle_idFilme}"/>
+                        <h:outputText value="#{bundle.ViewFilmeLabel_titulo}"/>
+                        <h:outputText value="#{filmeController.selected.titulo}" title="#{bundle.ViewFilmeTitle_titulo}"/>
+                        <h:outputText value="#{bundle.ViewFilmeLabel_descricao}"/>
+                        <h:outputText value="#{filmeController.selected.descricao}" title="#{bundle.ViewFilmeTitle_descricao}"/>
+                        <h:outputText value="#{bundle.ViewFilmeLabel_daEstreia}"/>
+                        <h:outputText value="#{filmeController.selected.daEstreia}" title="#{bundle.ViewFilmeTitle_daEstreia}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFilmeLabel_nrFaixaetaria}"/>
+                        <h:outputText value="#{filmeController.selected.nrFaixaetaria}" title="#{bundle.ViewFilmeTitle_nrFaixaetaria}"/>
+                        <h:outputText value="#{bundle.ViewFilmeLabel_idProdutora}"/>
+                        <h:outputText value="#{filmeController.selected.idProdutora}" title="#{bundle.ViewFilmeTitle_idProdutora}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FilmeViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

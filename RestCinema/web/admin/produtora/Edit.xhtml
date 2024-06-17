@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProdutoraEditDlg" widgetVar="ProdutoraEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditProdutoraTitle}">
+            <h:form id="ProdutoraEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{produtoraController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditProdutoraLabel_idProdutora}" for="idProdutora" />
+                        <p:inputText id="idProdutora" value="#{produtoraController.selected.idProdutora}" title="#{bundle.EditProdutoraTitle_idProdutora}" disabled="true" required="true" requiredMessage="#{bundle.EditProdutoraRequiredMessage_idProdutora}"/>
+                        <p:outputLabel value="#{bundle.EditProdutoraLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{produtoraController.selected.nome}" title="#{bundle.EditProdutoraTitle_nome}" required="true" requiredMessage="#{bundle.EditProdutoraRequiredMessage_nome}"/>
+                        <p:outputLabel value="#{bundle.EditProdutoraLabel_daFundacao}" for="daFundacao" />
+                        <p:calendar id="daFundacao" pattern="MM/dd/yyyy" value="#{produtoraController.selected.daFundacao}" title="#{bundle.EditProdutoraTitle_daFundacao}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditProdutoraLabel_nomefundador}" for="nomefundador" />
+                        <p:inputText id="nomefundador" value="#{produtoraController.selected.nomefundador}" title="#{bundle.EditProdutoraTitle_nomefundador}" required="true" requiredMessage="#{bundle.EditProdutoraRequiredMessage_nomefundador}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{produtoraController.update}" value="#{bundle.Save}" update="display,:ProdutoraListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProdutoraEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProdutoraEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

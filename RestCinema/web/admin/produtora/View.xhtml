@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProdutoraViewDlg" widgetVar="ProdutoraViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProdutoraTitle}">
+            <h:form id="ProdutoraViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{produtoraController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProdutoraLabel_idProdutora}"/>
+                        <h:outputText value="#{produtoraController.selected.idProdutora}" title="#{bundle.ViewProdutoraTitle_idProdutora}"/>
+                        <h:outputText value="#{bundle.ViewProdutoraLabel_nome}"/>
+                        <h:outputText value="#{produtoraController.selected.nome}" title="#{bundle.ViewProdutoraTitle_nome}"/>
+                        <h:outputText value="#{bundle.ViewProdutoraLabel_daFundacao}"/>
+                        <h:outputText value="#{produtoraController.selected.daFundacao}" title="#{bundle.ViewProdutoraTitle_daFundacao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewProdutoraLabel_nomefundador}"/>
+                        <h:outputText value="#{produtoraController.selected.nomefundador}" title="#{bundle.ViewProdutoraTitle_nomefundador}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProdutoraViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

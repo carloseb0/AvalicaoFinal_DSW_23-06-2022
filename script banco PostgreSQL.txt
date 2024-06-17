@@ -1,0 +1,33 @@
+--Data Base Name: DB_CINEMINHAFINAL
+
+Create table filme
+(
+ id_filme Serial NOT NULL,
+ titulo Varchar(100) NOT NULL,
+ descricao Varchar(250) NOT NULL,
+ id_genero Integer NOT NULL,
+ da_estreia date,
+ nr_faixaetaria Integer NOT NULL,
+ constraint pk_filme primary key (id_filme)
+);
+
+Create table produtora
+(
+ id_produtora Serial NOT NULL,
+ nome Varchar(100) NOT NULL,
+ da_fundacao date,
+ nomefundador Varchar(100) NOT NULL,
+ constraint pk_produtora primary key (id_produtora)
+);
+
+Create table usuario
+(
+ id_usuario Serial NOT NULL,
+ nome Varchar(250) NOT NULL,
+ usuario Varchar(250) NOT NULL UNIQUE,
+ senha Varchar(250) NOT NULL,
+ token Varchar(250),
+ constraint pk_pessoa primary key (id_usuario)
+) ;
+
+Alter table filme add Constraint Relationship1 foreign key (id_produtora) references produtora (id_produtora) on update restrict on delete restrict;

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProdutoraCreateDlg" widgetVar="ProdutoraCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateProdutoraTitle}">
+            <h:form id="ProdutoraCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{produtoraController.selected != null}"> 
+                        <p:outputLabel value="#{bundle.CreateProdutoraLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{produtoraController.selected.nome}" title="#{bundle.CreateProdutoraTitle_nome}" required="true" requiredMessage="#{bundle.CreateProdutoraRequiredMessage_nome}"/>
+                       
+                        <p:outputLabel value="#{bundle.CreateProdutoraLabel_daFundacao}" for="daFundacao" />
+                        <p:calendar id="daFundacao" pattern="MM/dd/yyyy" value="#{produtoraController.selected.daFundacao}" title="#{bundle.EditProdutoraTitle_daFundacao}"  showOn="button"/>
+                        
+                        <p:outputLabel value="#{bundle.CreateProdutoraLabel_nomefundador}" for="nomefundador" />
+                        <p:inputText id="nomefundador" value="#{produtoraController.selected.nomefundador}" title="#{bundle.CreateProdutoraTitle_nomefundador}" required="true" requiredMessage="#{bundle.CreateProdutoraRequiredMessage_nomefundador}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{produtoraController.create}" value="#{bundle.Save}" update="display,:ProdutoraListForm:datalist,:growl" oncomplete="handleSubmit(args,'ProdutoraCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProdutoraCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

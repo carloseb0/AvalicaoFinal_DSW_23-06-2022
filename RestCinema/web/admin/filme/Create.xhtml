@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FilmeCreateDlg" widgetVar="FilmeCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFilmeTitle}">
+            <h:form id="FilmeCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{filmeController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFilmeLabel_titulo}" for="titulo" />
+                        <p:inputText id="titulo" value="#{filmeController.selected.titulo}" title="#{bundle.CreateFilmeTitle_titulo}" required="true" requiredMessage="#{bundle.CreateFilmeRequiredMessage_titulo}"/>
+                        
+                        <p:outputLabel value="#{bundle.CreateFilmeLabel_descricao}" for="descricao" />
+                        <p:inputText id="descricao" value="#{filmeController.selected.descricao}" title="#{bundle.CreateFilmeTitle_descricao}" required="true" requiredMessage="#{bundle.CreateFilmeRequiredMessage_descricao}"/>
+                        
+                        <p:outputLabel value="#{bundle.CreateFilmeLabel_daEstreia}" for="daEstreia" />
+                        <p:calendar id="daEstreia" pattern="MM/dd/yyyy" value="#{filmeController.selected.daEstreia}" title="#{bundle.EditFilmeTitle_daEstreia}"  showOn="button"/>
+                        
+                        <p:outputLabel value="#{bundle.CreateFilmeLabel_nrFaixaetaria}" for="nrFaixaetaria" />
+                        <p:inputText id="nrFaixaetaria" value="#{filmeController.selected.nrFaixaetaria}" title="#{bundle.CreateFilmeTitle_nrFaixaetaria}" required="true" requiredMessage="#{bundle.CreateFilmeRequiredMessage_nrFaixaetaria}"/>
+                        
+                        <p:outputLabel value="#{bundle.CreateFilmeLabel_idProdutora}" for="idProdutora" />
+                        <p:selectOneMenu id="idProdutora" value="#{filmeController.selected.idProdutora}" required="true" requiredMessage="#{bundle.EditFilmeRequiredMessage_idProdutora}">
+                            <f:selectItems value="#{produtoraController.itemsAvailableSelectOne}"
+                                           var="idProdutoraItem"
+                                           itemValue="#{idProdutoraItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{filmeController.create}" value="#{bundle.Save}" update="display,:FilmeListForm:datalist,:growl" oncomplete="handleSubmit(args,'FilmeCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FilmeCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
